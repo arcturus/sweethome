@@ -1,0 +1,73 @@
+<page>
+        <models>
+                <model id="search">
+                        <instance>
+                                <data xmlns="">
+                                        <location/>
+                                        <max_price/>
+                                        <min_beds/>
+                                </data>
+                        </instance>
+                        <submission method="urlencoded-post" resource="search.bp"/>
+                </model>
+        </models>
+        <page-header>
+                <masthead>
+                        <layout-items>
+                                <block class="title">Find your home sweet home</block>
+                        </layout-items>
+                </masthead>
+        </page-header>
+        <content>
+                        <module>
+                                <input model="search" ref="location">
+                                        <label>Find in: {% if form and form.location.errors %}(required){% endif %}</label>
+                                </input>
+                                <select1 ref="max_price" model="search" appearance="popup">
+                                        <label>Max price:</label>
+                                        <item>
+                                                <value>300</value>
+                                                <label>300 pounds p.w.</label>
+                                        </item>
+                                        <item>
+                                                <value>500</value>
+                                                <label>500 pounds p.w.</label>
+                                        </item>
+                                        <item>
+                                                <value>800</value>
+                                                <label>800 pounds p.w.</label>
+                                        </item>
+                                        <item>
+                                                <value>1200</value>
+                                                <label>1200 pounds p.w.</label>
+                                        </item>
+                                </select1>
+                                <select1 ref="min_beds" model="search" appearance="popup">
+                                        <label>Min bedrooms:</label>
+                                        <item>
+                                                <value>0</value>
+                                                <label>Studio</label>
+                                        </item>
+                                        <item>
+                                                <value>1</value>
+                                                <label>1 bedroom</label>
+                                        </item>
+                                        <item>
+                                                <value>2</value>
+                                                <label>2 bedrooms</label>
+                                        </item>
+                                        <item>
+                                                <value>3</value>
+                                                <label>3 bedrooms</label>
+                                        </item>
+                                </select1>
+                                <submit model="search">
+                                        <label>Search</label>
+                                </submit>
+                                <display-ad>
+                                        <banner resource="http://s.uk.nestoria.nestimg.com/i/realestate/uk/en/pb.png"/>
+                                        <load event="activate" resource="http://www.nestoria.co.uk"/>
+                                </display-ad>
+                        </module>
+        </content> 
+</page>

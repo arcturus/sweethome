@@ -1,0 +1,30 @@
+<page>
+        <page-header>
+                <masthead>
+                        <layout-items>
+                                <block class="title">Found {{ results|length }} properties</block>
+                        </layout-items>
+                </masthead>
+        </page-header>
+        <content>
+                        <module>
+                                {% for result in results %}    
+                                        <placard layout="card">
+                                                <layout-items>
+                                                        <image resource="{{result.thumb_url}}"/>
+                                                        <block class="title">{{result.title}}</block>
+                                                        <block>
+                                                                <span class="subdued">{{result.summary}}</span>
+                                                        </block>
+                                                        <block class="small positive">{{result.price_formatted}}</block>
+                                                </layout-items>
+                                                <load event="activate" resource="{{result.lister_url}}"/>
+                                        </placard>
+                                {% endfor %}
+                                <display-ad>
+                                        <banner resource="http://s.uk.nestoria.nestimg.com/i/realestate/uk/en/pb.png"/>
+                                        <load event="activate" resource="http://www.nestoria.co.uk"/>
+                                </display-ad>
+                        </module>
+        </content> 
+</page>
